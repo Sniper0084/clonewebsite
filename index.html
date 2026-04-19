@@ -6,36 +6,33 @@
   <title>Archipelago One-Page Recreation</title>
   <style>
     :root {
-      --sea: #3e6fbd;
-      --sea-dark: #334d9d;
-      --foam: #f6f7f1;
-      --grass: #46be4d;
-      --grass-dark: #32953a;
-      --sand: #d6b373;
-      --sand-dark: #b88c4f;
-      --soil: #6f4d2a;
-      --soil-dark: #4b331d;
-      --shadow: #2f4189;
-      --ink: #f6f7fb;
-      --panel-text: #f5f7cf;
-      --link: #ffe04a;
+      --ocean: #3f71bd;
+      --ocean-dark: #314694;
+      --foam: #f3f4ef;
+      --brand: #3a6f8b;
+      --grass: #46bf4d;
+      --grass-dark: #2d8d36;
+      --soil: #6b4724;
+      --sand: #d9b777;
+      --sand-dark: #b88b50;
+      --ring: #394993;
+      --panel-text: #f0f5c7;
+      --accent: #ffe24b;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
+    html, body {
+      margin: 0;
+      min-height: 100%;
       scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      min-height: 100vh;
       font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-      background: var(--sea);
-      color: white;
+      color: #fff;
       overflow-x: hidden;
+      background: var(--ocean);
     }
 
     a {
@@ -45,49 +42,44 @@
 
     .page {
       min-height: 100vh;
-      background:
-        radial-gradient(circle at 22px 18px, rgba(255,255,255,0.18) 0 1.5px, transparent 1.5px),
-        radial-gradient(circle at 28px 18px, rgba(255,255,255,0.18) 0 1.5px, transparent 1.5px),
-        radial-gradient(circle at 24px 21px, transparent 0 10px, rgba(255,255,255,0.14) 10px 11.5px, transparent 11.5px),
-        linear-gradient(var(--sea), var(--sea));
-      background-size: 72px 48px, 72px 48px, 72px 48px, auto;
       position: relative;
+      background:
+        radial-gradient(circle at 13px 13px, rgba(255,255,255,0.16) 0 1px, transparent 1px),
+        radial-gradient(circle at 20px 13px, rgba(255,255,255,0.16) 0 1px, transparent 1px),
+        radial-gradient(18px 8px at 16px 17px, transparent 68%, rgba(255,255,255,0.12) 69% 76%, transparent 77%),
+        linear-gradient(var(--ocean), var(--ocean));
+      background-size: 48px 40px, 48px 40px, 48px 40px, auto;
       isolation: isolate;
     }
 
     .topbar {
       height: 48px;
-      background: #f3f4ef;
-      color: #356885;
+      background: var(--foam);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 8px 0 6px;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-      border-bottom: 3px solid #d8ddd0;
+      position: relative;
+      z-index: 10;
     }
 
     .brand {
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-      font-size: clamp(1.5rem, 2.2vw, 2.2rem);
-      letter-spacing: 0.04em;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
-      text-transform: uppercase;
-      color: #356f8a;
+      gap: 0.4rem;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(1.8rem, 2.2vw, 2.4rem);
       line-height: 1;
+      letter-spacing: 0.03em;
+      color: var(--brand);
+      text-transform: uppercase;
     }
 
     .brand-icon {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       position: relative;
-      display: inline-grid;
-      place-items: center;
       flex: 0 0 auto;
     }
 
@@ -97,70 +89,221 @@
     .brand-icon span::after {
       content: "";
       position: absolute;
-      width: 11px;
-      height: 11px;
-      background: #356f8a;
+      width: 10px;
+      height: 10px;
+      background: var(--brand);
       border-radius: 50%;
     }
 
     .brand-icon::before { top: 0; left: 6px; }
-    .brand-icon::after { left: 0; top: 7px; }
-    .brand-icon span::before { right: 0; top: 7px; }
-    .brand-icon span::after { left: 6px; bottom: 0; }
+    .brand-icon::after { top: 6px; left: 0; }
+    .brand-icon span::before { top: 6px; right: 0; }
+    .brand-icon span::after { bottom: 0; left: 6px; }
 
     .brand-icon i {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
       width: 5px;
       height: 5px;
-      background: #f3f4ef;
       border-radius: 50%;
-      display: block;
-      position: relative;
+      background: var(--foam);
       z-index: 1;
+      display: block;
     }
 
     .top-links {
       display: flex;
-      gap: 1.1rem;
-      align-items: center;
-      font-size: 0.9rem;
+      gap: 1rem;
+      font-size: 0.88rem;
       font-weight: 800;
       text-transform: uppercase;
+      color: var(--brand);
       flex-wrap: wrap;
-    }
-
-    .top-links a {
-      color: #356885;
-      border-bottom: 2px solid transparent;
+      justify-content: flex-end;
     }
 
     .top-links a:hover,
     .top-links a:focus-visible {
-      border-color: currentColor;
+      text-decoration: underline;
+      text-underline-offset: 0.16em;
       outline: none;
     }
 
     .foam-line {
-      height: 12px;
+      height: 14px;
       background:
-        radial-gradient(circle at 10px 4px, #537ac3 0 6px, transparent 6px),
-        radial-gradient(circle at 28px 4px, #537ac3 0 6px, transparent 6px),
-        radial-gradient(circle at 46px 4px, #537ac3 0 6px, transparent 6px),
-        linear-gradient(#537ac3, #537ac3);
-      background-size: 54px 12px, 54px 12px, 54px 12px, auto;
-      background-position: 0 0, 0 0, 0 0, 0 7px;
+        radial-gradient(circle at 8px 5px, #547cc5 0 6px, transparent 6px),
+        radial-gradient(circle at 24px 5px, #547cc5 0 6px, transparent 6px),
+        radial-gradient(circle at 40px 5px, #547cc5 0 6px, transparent 6px),
+        linear-gradient(#547cc5, #547cc5);
+      background-size: 48px 14px, 48px 14px, 48px 14px, auto;
+      background-position: 0 0, 0 0, 0 0, 0 8px;
     }
 
-    .sea-stage {
+    .sea {
       position: relative;
-      min-height: calc(100vh - 48px);
-      padding: 1.4rem 1rem 6.75rem;
+      min-height: calc(100vh - 62px);
+      padding: 18px 18px 64px;
+      overflow: hidden;
     }
+
+    .hero {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      min-height: 720px;
+      z-index: 2;
+    }
+
+    .title-wrap {
+      width: min(100%, 640px);
+      margin: 10px auto 0;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    .main-title {
+      margin: 0;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(4.2rem, 7vw, 7.4rem);
+      line-height: 0.92;
+      letter-spacing: 0.035em;
+      color: #f8f7fb;
+      text-shadow:
+        3px 3px 0 #35395f,
+        6px 6px 0 rgba(53,57,95,0.9),
+        10px 10px 0 rgba(0,0,0,0.12);
+    }
+
+    .subtitle {
+      margin: 0.45rem 0 0;
+      font-size: clamp(1.25rem, 1.8vw, 2.15rem);
+      color: #f6f7fb;
+      text-shadow: 2px 2px 0 rgba(49, 70, 148, 0.5);
+    }
+
+    .island,
+    .panel {
+      background: var(--grass);
+      box-shadow:
+        0 0 0 8px var(--soil),
+        0 0 0 14px var(--sand-dark),
+        0 0 0 20px var(--sand),
+        0 0 0 26px var(--ring);
+    }
+
+    .island {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #f3fff2;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.02;
+      padding: 0.4rem;
+      cursor: pointer;
+      z-index: 2;
+      text-shadow: 2px 2px 0 rgba(43, 83, 39, 0.55);
+      transition: transform 0.15s ease;
+    }
+
+    .island:hover,
+    .island:focus-visible {
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    .supported {
+      width: 126px;
+      height: 82px;
+      left: 18%;
+      top: 78px;
+      border-radius: 42% 40% 46% 41% / 44% 38% 49% 43%;
+      transform: rotate(-8deg);
+      font-size: 1.08rem;
+    }
+
+    .guides {
+      width: 126px;
+      height: 70px;
+      left: 31%;
+      top: 196px;
+      border-radius: 39% 43% 38% 42% / 44% 38% 50% 42%;
+      transform: rotate(-3deg);
+      font-size: 1rem;
+    }
+
+    .start {
+      width: 116px;
+      height: 78px;
+      left: 49%;
+      top: 246px;
+      border-radius: 42% 38% 45% 42% / 45% 37% 49% 46%;
+      transform: rotate(-2deg);
+      font-size: 1.04rem;
+    }
+
+    .faq {
+      width: 122px;
+      height: 68px;
+      right: 22%;
+      top: 222px;
+      border-radius: 40% 39% 44% 41% / 46% 36% 50% 42%;
+      transform: rotate(-10deg);
+      font-size: 1rem;
+    }
+
+    .discord {
+      width: 136px;
+      height: 72px;
+      right: 11%;
+      top: 90px;
+      border-radius: 40% 42% 41% 46% / 47% 39% 50% 41%;
+      transform: rotate(2deg);
+      font-size: 1.02rem;
+    }
+
+    .mini-island,
+    .rock {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .mini-island {
+      background: var(--grass);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 6px var(--soil),
+        0 0 0 10px var(--sand-dark),
+        0 0 0 14px var(--ring);
+    }
+
+    .mini-1 { width: 26px; height: 26px; left: 59%; top: 170px; }
+    .mini-2 { width: 32px; height: 32px; left: 39%; top: 332px; }
+    .mini-3 { width: 20px; height: 20px; left: 50.5%; top: 208px; }
+
+    .rock {
+      width: 16px;
+      height: 16px;
+      background: #8b6233;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #bf985e, 0 0 0 6px #4e3b5f;
+    }
+
+    .rock-1 { left: 23%; top: 226px; }
+    .rock-2 { left: 45%; top: 250px; }
+    .rock-3 { right: 31%; top: 284px; }
+    .rock-4 { right: 17%; top: 78px; width: 12px; height: 12px; }
 
     .cloud {
       position: absolute;
       background: #f7faf7;
-      border-radius: 42% 44% 45% 46% / 38% 39% 55% 50%;
-      box-shadow: 34px 24px 0 #2f4189;
+      border-radius: 45% 42% 46% 44% / 40% 38% 56% 50%;
       z-index: 0;
       opacity: 0.98;
     }
@@ -174,246 +317,83 @@
     }
 
     .cloud-left {
-      width: 128px;
-      height: 92px;
-      left: 2vw;
-      top: 20vh;
+      width: 134px;
+      height: 88px;
+      left: 2px;
+      top: 172px;
       transform: rotate(-12deg);
+      box-shadow: 34px 36px 0 var(--ocean-dark);
     }
 
     .cloud-left::before {
-      width: 88px;
+      width: 86px;
       height: 62px;
-      left: 22px;
-      top: -18px;
-      transform: rotate(10deg);
+      left: 18px;
+      top: -20px;
+      transform: rotate(12deg);
     }
 
     .cloud-left::after {
-      width: 76px;
-      height: 56px;
-      left: 72px;
-      top: 14px;
-      transform: rotate(18deg);
-    }
-
-    .cloud-right-top {
-      width: 130px;
-      height: 96px;
-      right: 3vw;
-      top: 18vh;
+      width: 74px;
+      height: 50px;
+      left: 70px;
+      top: 18px;
       transform: rotate(20deg);
     }
 
+    .cloud-right-top {
+      width: 132px;
+      height: 88px;
+      right: 6px;
+      top: 158px;
+      transform: rotate(16deg);
+      box-shadow: 22px 32px 0 var(--ocean-dark);
+    }
+
     .cloud-right-top::before {
-      width: 82px;
-      height: 62px;
-      right: -10px;
-      top: 12px;
-      transform: rotate(18deg);
+      width: 88px;
+      height: 58px;
+      left: 12px;
+      top: -18px;
+      transform: rotate(-6deg);
     }
 
     .cloud-right-top::after {
-      width: 88px;
-      height: 58px;
-      left: 10px;
-      top: -18px;
-      transform: rotate(-10deg);
+      width: 72px;
+      height: 50px;
+      right: -10px;
+      top: 18px;
+      transform: rotate(12deg);
     }
 
     .cloud-right-bottom {
-      width: 74px;
-      height: 92px;
-      right: 1vw;
-      top: 37vh;
-      transform: rotate(-2deg);
-      box-shadow: 24px 38px 0 #2f4189;
+      width: 62px;
+      height: 88px;
+      right: -4px;
+      top: 346px;
+      transform: rotate(-6deg);
+      box-shadow: 18px 36px 0 var(--ocean-dark);
     }
 
     .cloud-right-bottom::before {
-      width: 46px;
-      height: 40px;
+      width: 42px;
+      height: 38px;
       left: -8px;
-      top: 8px;
-      transform: rotate(8deg);
+      top: 12px;
+      transform: rotate(10deg);
     }
 
     .cloud-right-bottom::after {
-      width: 40px;
-      height: 38px;
-      right: -6px;
-      bottom: 10px;
-      transform: rotate(-6deg);
+      width: 38px;
+      height: 34px;
+      right: -5px;
+      bottom: 12px;
+      transform: rotate(-10deg);
     }
-
-    .hero {
-      max-width: 1120px;
-      margin: 0 auto;
-      position: relative;
-      min-height: 430px;
-      padding-top: 0.6rem;
-      z-index: 1;
-    }
-
-    .title-wrap {
-      text-align: center;
-      margin-top: 0.4rem;
-      position: relative;
-      z-index: 3;
-    }
-
-    .main-title {
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-      font-size: clamp(3.4rem, 8vw, 7rem);
-      line-height: 0.95;
-      margin: 0;
-      letter-spacing: 0.03em;
-      color: #f7f8fb;
-      text-transform: uppercase;
-      text-shadow:
-        2px 2px 0 #2d3564,
-        4px 4px 0 #2d3564,
-        6px 6px 0 rgba(0,0,0,0.18);
-    }
-
-    .subtitle {
-      margin: 0.45rem 0 0;
-      font-size: clamp(1.1rem, 2.2vw, 2rem);
-      color: #f7f8fb;
-      text-shadow: 2px 2px 0 rgba(35, 58, 114, 0.5);
-    }
-
-    .island-link,
-    .panel {
-      position: relative;
-      background: var(--grass);
-      color: #f6fff1;
-      box-shadow:
-        0 0 0 8px var(--soil),
-        0 0 0 14px var(--sand-dark),
-        0 0 0 20px var(--sand),
-        0 0 0 26px var(--shadow);
-    }
-
-    .island-link {
-      position: absolute;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: clamp(1rem, 1.4vw, 1.45rem);
-      line-height: 1.05;
-      padding: 0.5rem;
-      cursor: pointer;
-      transition: transform 0.15s ease;
-      z-index: 2;
-      text-shadow: 2px 2px 0 rgba(43, 83, 39, 0.55);
-    }
-
-    .island-link:hover,
-    .island-link:focus-visible {
-      transform: translateY(-4px);
-      outline: none;
-    }
-
-    .island-link:active {
-      transform: translateY(0);
-    }
-
-    .supported {
-      width: 138px;
-      height: 94px;
-      top: 3.9rem;
-      left: 18%;
-      border-radius: 43% 41% 45% 41% / 46% 38% 49% 44%;
-      transform: rotate(-6deg);
-    }
-
-    .guides {
-      width: 128px;
-      height: 74px;
-      top: 10.8rem;
-      left: 30%;
-      border-radius: 36% 43% 38% 41% / 49% 35% 52% 44%;
-      transform: rotate(-2deg);
-    }
-
-    .start {
-      width: 118px;
-      height: 82px;
-      top: 13.5rem;
-      left: 49%;
-      border-radius: 42% 38% 44% 41% / 44% 38% 47% 48%;
-      transform: rotate(-2deg);
-    }
-
-    .faq {
-      width: 118px;
-      height: 62px;
-      top: 11.6rem;
-      right: 19%;
-      border-radius: 42% 36% 45% 39% / 46% 37% 51% 40%;
-      transform: rotate(-8deg);
-    }
-
-    .discord {
-      width: 136px;
-      height: 72px;
-      top: 4.2rem;
-      right: 10%;
-      border-radius: 40% 43% 41% 47% / 48% 38% 50% 42%;
-      transform: rotate(2deg);
-    }
-
-    .pebble,
-    .mini-island {
-      position: absolute;
-      background: #8d6537;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .pebble {
-      width: 16px;
-      height: 16px;
-      box-shadow: 0 0 0 3px #c49c62, 0 0 0 6px #4d3d63;
-    }
-
-    .mini-island {
-      box-shadow: 0 0 0 6px var(--soil), 0 0 0 11px var(--sand-dark), 0 0 0 15px var(--shadow);
-      background: var(--grass);
-    }
-
-    .mini-1 {
-      width: 18px;
-      height: 18px;
-      top: 8rem;
-      left: 23%;
-    }
-
-    .mini-2 {
-      width: 28px;
-      height: 28px;
-      top: 18rem;
-      left: 40%;
-    }
-
-    .mini-3 {
-      width: 20px;
-      height: 20px;
-      top: 10.2rem;
-      left: 60%;
-    }
-
-    .rock-1 { top: 2.2rem; right: 24%; }
-    .rock-2 { top: 10.9rem; left: 44.5%; }
-    .rock-3 { top: 14.7rem; right: 29%; }
 
     .welcome-wrap {
-      max-width: 980px;
-      margin: 5.3rem auto 0;
+      max-width: 1000px;
+      margin: 150px auto 0;
       display: flex;
       justify-content: center;
       position: relative;
@@ -421,113 +401,86 @@
     }
 
     .panel {
-      width: min(100%, 500px);
-      min-height: 260px;
-      padding: 2rem 2.1rem;
-      border-radius: 14% 14% 15% 15% / 18% 18% 18% 18%;
+      width: min(100%, 470px);
+      min-height: 250px;
+      padding: 2rem 2rem 1.7rem;
+      border-radius: 13% 13% 14% 14% / 17% 17% 17% 17%;
+      position: relative;
     }
 
     .panel h2 {
-      margin: 0 0 1rem;
+      margin: 0 0 0.95rem;
       font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 1.95rem;
+      line-height: 1;
+      color: #efffdf;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      font-size: 1.8rem;
-      color: #eaffdf;
       text-shadow: 2px 2px 0 rgba(43, 83, 39, 0.55);
     }
 
     .panel p {
-      margin: 0 0 1rem;
-      font-size: 1.06rem;
-      line-height: 1.5;
+      margin: 0 0 0.95rem;
+      font-size: 1rem;
+      line-height: 1.45;
       color: var(--panel-text);
     }
 
     .panel strong,
     .panel a {
-      color: var(--link);
+      color: var(--accent);
       font-weight: 800;
     }
 
     .panel a {
       text-decoration: underline;
-      text-underline-offset: 0.12em;
+      text-underline-offset: 0.14em;
     }
 
-    .sprout,
-    .sprout::before,
-    .sprout::after {
+    .grass-mark,
+    .grass-mark::before,
+    .grass-mark::after {
+      content: "";
       position: absolute;
       width: 8px;
       height: 12px;
-      background: transparent;
-      border-left: 3px solid rgba(62, 120, 60, 0.85);
+      border-left: 3px solid rgba(60, 118, 53, 0.85);
       border-radius: 50%;
-      content: "";
     }
 
-    .sprout {
-      top: 3rem;
-      right: 8rem;
-      transform: rotate(6deg);
-    }
+    .grass-mark { top: 86px; right: 74px; transform: rotate(6deg); }
+    .grass-mark::before { left: -11px; top: 1px; transform: rotate(-38deg); }
+    .grass-mark::after { left: 6px; top: 1px; transform: rotate(32deg); }
+    .grass-mark.g2 { top: auto; right: 102px; bottom: 34px; transform: rotate(-4deg) scale(0.9); }
+    .grass-mark.g3 { top: auto; right: auto; left: 50%; bottom: 16px; transform: translateX(-50%) scale(0.8); }
 
-    .sprout::before {
-      left: -11px;
-      top: 1px;
-      transform: rotate(-36deg);
-    }
-
-    .sprout::after {
-      left: 6px;
-      top: 1px;
-      transform: rotate(34deg);
-    }
-
-    .sprout.s2 {
-      top: auto;
-      bottom: 2.8rem;
-      right: 8.6rem;
-      transform: rotate(-2deg) scale(0.9);
-    }
-
-    .sprout.s3 {
-      top: auto;
-      bottom: 1.4rem;
-      left: 50%;
-      transform: translateX(-50%) scale(0.8);
-    }
-
-    .ground {
+    .shore {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 28px;
+      bottom: 24px;
       height: 24px;
       background:
-        radial-gradient(circle at 24px 18px, #43c84a 0 15px, transparent 15px),
-        radial-gradient(circle at 80px 20px, #43c84a 0 13px, transparent 13px),
-        radial-gradient(circle at 132px 18px, #43c84a 0 14px, transparent 14px),
-        linear-gradient(#cfc79c, #cfc79c);
-      background-size: 160px 24px, 160px 24px, 160px 24px, auto;
-      background-position: 0 0, 0 0, 0 0, 0 18px;
+        radial-gradient(circle at 14px 18px, #43c84a 0 14px, transparent 14px),
+        radial-gradient(circle at 52px 18px, #43c84a 0 12px, transparent 12px),
+        radial-gradient(circle at 90px 18px, #43c84a 0 13px, transparent 13px),
+        linear-gradient(#c9c494, #c9c494);
+      background-size: 106px 24px, 106px 24px, 106px 24px, auto;
+      background-position: 0 0, 0 0, 0 0, 0 17px;
       z-index: 2;
     }
 
     .cookie {
       position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
       bottom: 0;
-      width: 100%;
-      max-width: none;
-      background: rgba(208, 193, 147, 0.92);
+      background: rgba(210, 194, 145, 0.95);
       color: #fff7d6;
-      font-size: 0.95rem;
       text-align: center;
-      padding: 0.45rem 2.2rem 0.5rem;
-      z-index: 30;
+      font-size: 0.92rem;
+      padding: 0.42rem 2rem 0.45rem;
+      z-index: 12;
     }
 
     .cookie .close {
@@ -537,43 +490,41 @@
       font-weight: 900;
     }
 
-    @media (max-width: 1050px) {
-      .hero {
-        min-height: 540px;
-      }
-
-      .supported { left: 8%; }
-      .guides { left: 20%; top: 11.5rem; }
-      .start { left: 43%; top: 15rem; }
-      .faq { right: 10%; top: 14rem; }
-      .discord { right: 4%; }
-      .cloud-right-top { right: 1vw; }
-      .cloud-left { left: 0.5vw; }
+    @media (max-width: 1100px) {
+      .hero { min-height: 760px; }
+      .supported { left: 11%; }
+      .guides { left: 24%; }
+      .start { left: 46%; }
+      .faq { right: 14%; }
+      .discord { right: 5%; }
+      .welcome-wrap { margin-top: 172px; }
     }
 
     @media (max-width: 820px) {
       .topbar {
         height: auto;
-        gap: 0.65rem;
         padding: 0.5rem 0.75rem;
         align-items: flex-start;
         flex-direction: column;
+        gap: 0.5rem;
       }
 
-      .top-links {
-        gap: 0.8rem;
-      }
-
-      .sea-stage {
-        min-height: calc(100vh - 84px);
+      .sea {
+        min-height: calc(100vh - 92px);
+        padding-left: 10px;
+        padding-right: 10px;
       }
 
       .hero {
-        min-height: 780px;
+        min-height: 930px;
+      }
+
+      .title-wrap {
+        margin-top: 8px;
       }
 
       .main-title {
-        font-size: clamp(3.2rem, 14vw, 5.4rem);
+        font-size: clamp(3.5rem, 13vw, 5.8rem);
       }
 
       .supported,
@@ -585,62 +536,62 @@
         right: auto;
       }
 
-      .supported { top: 8.5rem; transform: translateX(-170px) rotate(-6deg); }
-      .guides { top: 17rem; transform: translateX(-110px) rotate(-3deg); }
-      .start { top: 24rem; transform: translateX(-20px) rotate(-2deg); }
-      .faq { top: 16.5rem; transform: translateX(90px) rotate(-7deg); }
-      .discord { top: 7.8rem; transform: translateX(120px) rotate(2deg); }
+      .supported { top: 110px; transform: translateX(-170px) rotate(-8deg); }
+      .discord { top: 108px; transform: translateX(72px) rotate(2deg); }
+      .guides { top: 220px; transform: translateX(-118px) rotate(-3deg); }
+      .faq { top: 226px; transform: translateX(84px) rotate(-10deg); }
+      .start { top: 318px; transform: translateX(-8px) rotate(-2deg); }
 
-      .mini-1 { left: 25%; top: 13rem; }
-      .mini-2 { left: 24%; top: 29rem; }
-      .mini-3 { left: 66%; top: 15.5rem; }
-      .rock-1 { right: 20%; top: 8rem; }
-      .rock-2 { left: 49%; top: 18rem; }
-      .rock-3 { right: 24%; top: 24rem; }
-
-      .welcome-wrap {
-        margin-top: 1.5rem;
-      }
-
-      .panel {
-        border-radius: 11% 11% 12% 12% / 12% 12% 12% 12%;
-      }
+      .mini-1 { left: 63%; top: 250px; }
+      .mini-2 { left: 46%; top: 404px; }
+      .mini-3 { left: 51%; top: 282px; }
+      .rock-1 { left: 24%; top: 268px; }
+      .rock-2 { left: 47%; top: 293px; }
+      .rock-3 { right: 24%; top: 330px; }
+      .rock-4 { right: 10%; top: 106px; }
 
       .cloud-left,
       .cloud-right-top,
       .cloud-right-bottom {
-        opacity: 0.5;
+        opacity: 0.58;
         transform: scale(0.82);
+      }
+
+      .welcome-wrap {
+        margin-top: 120px;
       }
     }
 
     @media (max-width: 560px) {
-      .sea-stage {
-        padding-left: 0.65rem;
-        padding-right: 0.65rem;
+      .top-links {
+        gap: 0.7rem;
+        font-size: 0.8rem;
       }
 
-      .hero {
-        min-height: 860px;
-      }
+      .hero { min-height: 980px; }
 
-      .supported { transform: translateX(-120px) scale(0.88) rotate(-6deg); }
-      .guides { transform: translateX(-95px) scale(0.88) rotate(-3deg); }
-      .start { transform: translateX(-10px) scale(0.9) rotate(-2deg); }
-      .faq { transform: translateX(82px) scale(0.88) rotate(-7deg); }
-      .discord { transform: translateX(88px) scale(0.9) rotate(2deg); }
+      .supported { transform: translateX(-132px) scale(0.88) rotate(-8deg); }
+      .discord { transform: translateX(54px) scale(0.88) rotate(2deg); }
+      .guides { transform: translateX(-90px) scale(0.88) rotate(-3deg); }
+      .faq { transform: translateX(72px) scale(0.88) rotate(-10deg); }
+      .start { transform: translateX(-5px) scale(0.9) rotate(-2deg); }
 
       .panel {
-        padding: 1.5rem 1.2rem;
+        width: min(100%, 420px);
+        padding: 1.55rem 1.25rem 1.45rem;
+        border-radius: 11% 11% 12% 12% / 13% 13% 13% 13%;
+      }
+
+      .panel h2 {
+        font-size: 1.55rem;
       }
 
       .panel p {
-        font-size: 0.98rem;
+        font-size: 0.96rem;
       }
 
       .cookie {
         font-size: 0.82rem;
-        padding-right: 1.7rem;
       }
     }
   </style>
@@ -653,15 +604,15 @@
         Archipelago
       </a>
       <nav class="top-links" aria-label="Page navigation">
-        <a href="#start-playing">Get Started</a>
-        <a href="#faq">F.A.Q.</a>
-        <a href="#discord">Discord</a>
+        <a href="#welcome">Get Started</a>
+        <a href="#welcome">F.A.Q.</a>
+        <a href="#welcome">Discord</a>
       </nav>
     </header>
 
     <div class="foam-line" aria-hidden="true"></div>
 
-    <main class="sea-stage">
+    <main class="sea">
       <div class="cloud cloud-left" aria-hidden="true"></div>
       <div class="cloud cloud-right-top" aria-hidden="true"></div>
       <div class="cloud cloud-right-bottom" aria-hidden="true"></div>
@@ -672,25 +623,26 @@
           <p class="subtitle">multiworld multi-game randomizer</p>
         </div>
 
-        <a class="island-link supported" id="supported-games" href="#welcome">Supported<br />Games</a>
-        <a class="island-link guides" id="setup-guides" href="#welcome">Setup Guides</a>
-        <a class="island-link start" id="start-playing" href="#welcome">Start<br />Playing</a>
-        <a class="island-link faq" id="faq" href="#welcome">F.A.Q.</a>
-        <a class="island-link discord" id="discord" href="#welcome">Discord</a>
+        <a class="island supported" href="#welcome">Supported<br>Games</a>
+        <a class="island guides" href="#welcome">Setup<br>Guides</a>
+        <a class="island start" href="#welcome">Start<br>Playing</a>
+        <a class="island faq" href="#welcome">F.A.Q.</a>
+        <a class="island discord" href="#welcome">Discord</a>
 
         <span class="mini-island mini-1" aria-hidden="true"></span>
         <span class="mini-island mini-2" aria-hidden="true"></span>
         <span class="mini-island mini-3" aria-hidden="true"></span>
-        <span class="pebble rock-1" aria-hidden="true"></span>
-        <span class="pebble rock-2" aria-hidden="true"></span>
-        <span class="pebble rock-3" aria-hidden="true"></span>
+        <span class="rock rock-1" aria-hidden="true"></span>
+        <span class="rock rock-2" aria-hidden="true"></span>
+        <span class="rock rock-3" aria-hidden="true"></span>
+        <span class="rock rock-4" aria-hidden="true"></span>
       </section>
 
       <section class="welcome-wrap" id="welcome">
         <article class="panel" aria-labelledby="welcome-title">
-          <div class="sprout" aria-hidden="true"></div>
-          <div class="sprout s2" aria-hidden="true"></div>
-          <div class="sprout s3" aria-hidden="true"></div>
+          <span class="grass-mark" aria-hidden="true"></span>
+          <span class="grass-mark g2" aria-hidden="true"></span>
+          <span class="grass-mark g3" aria-hidden="true"></span>
           <h2 id="welcome-title">Welcome to Archipelago!</h2>
           <p>
             This is a cross-game modification system which randomizes different games, then
@@ -703,13 +655,11 @@
             Together, they have spent countless hours creating a huge repository of
             <a href="#welcome">source code</a> which has turned our crazy idea into a reality.
           </p>
-          <p>
-            <strong>28508</strong> games were generated and <strong>26723</strong> were hosted in the last 7 days.
-          </p>
+          <p><strong>28508</strong> games were generated and <strong>26723</strong> were hosted in the last 7 days.</p>
         </article>
       </section>
 
-      <div class="ground" aria-hidden="true"></div>
+      <div class="shore" aria-hidden="true"></div>
     </main>
 
     <div class="cookie" aria-label="Cookie notice">
